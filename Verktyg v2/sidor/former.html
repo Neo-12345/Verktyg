@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>» | Former</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+      function calc() {
+        // Cirkel Omkrets
+        let radie = document.querySelector("#radie").value;
+
+        // Cirkel Area
+        let radie2 = document.querySelector("#radie2").value;
+
+        if(radie) {
+            radie = Number(radie);
+
+            let result = 2 * Math.PI * radie;
+            let rounded = Math.round(result);
+            alert(`• Resultat: ${result}cm\n• Avrundat: ${rounded}cm`);
+
+            document.querySelector("#radie").value = "";
+        }
+
+        if(radie2) {
+            radie2 = Number(radie2);
+
+            let result = Math.PI * Math.pow(radie2, 2);
+            let rounded = Math.round(result);
+            alert(`• Resultat: ${result} cm2\n• Avrundat: ${rounded}cm`);
+
+            document.querySelector("#radie2").value = "";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="navbar">
+        <a class="hem" href="../index.html">Hem</a>
+        <div style="float:right" class="dropdown">
+          <button class="dropbtn">Verktyg 
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="ohm.html">Ohms Lag</a>
+            <a href="elpriser.html">Elpriser</a>
+            <a href="pythagoras.html">Pythagoras Sats</a>
+            <a href="former.html">Former</a>
+            <a href="grader.html">Grader</a>
+          </div>
+        </div> 
+      </div>
+
+    <br>
+    <br>
+
+    <div class="titel">Former</div>
+
+    <br>
+    <br>
+    <br>
+    <hr class="linje">
+
+    <p class="textpg"><b>» |</b> Cirkel Omkrets (2 * π *  r)</p>
+    <input type="number" id="radie" placeholder="Radie">
+    <input type="button" value="Calculate" onclick="calc()">
+
+    <br>
+    <br>
+
+    <p class="textpg"><b>» |</b> Cirkel Area (π * r^2)</p>
+    <input type="number" id="radie2" placeholder="Radie">
+    <input type="button" value="Calculate" onclick="calc()">
+  </body>
+</html>

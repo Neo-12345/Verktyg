@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>» | Ohms Lag</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+      function calc() {
+        // Ohm
+        let voltOhm = document.querySelector("#voltohm").value;
+        let ampereOhm = document.querySelector("#ampereohm").value;
+
+        // Ampere
+        let voltAmp = document.querySelector("#voltamp").value;
+        let ohmAmp = document.querySelector("#ohmamp").value;
+
+        // Volt
+        let ampereVolt = document.querySelector("#amperevolt").value;
+        let ohmVolt = document.querySelector("#ohmvolt").value;
+
+        if(voltOhm && ampereOhm) {
+          voltOhm = Number(voltOhm);
+          ohmAmp = Number(ohmAmp);
+
+          let result = voltOhm / ampereOhm
+          alert(`• ${result} Ohm`);
+
+          document.querySelector("#voltohm").value = "";
+          document.querySelector("#ampereohm").value = "";
+        }
+
+        if(voltAmp && ohmAmp) {
+          voltAmp = Number(voltAmp);
+          ohmAmp = Number(ohmAmp);
+
+          let result = voltAmp / ohmAmp;
+          alert(`• ${result} Ampere`);
+
+          document.querySelector("#voltamp").value = "";
+          document.querySelector("#ohmamp").value = "";
+        }
+
+        if(ampereVolt && ohmVolt) {
+          ampereOhm = Number(ampereOhm);
+          ohmVolt = Number(ohmVolt);
+
+          let result = ampereVolt * ohmVolt;
+          alert(`• ${result} Volt`)
+          
+          document.querySelector("#amperevolt").value = "";
+          document.querySelector("#ohmvolt").value = "";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="navbar">
+        <a class="hem" href="../index.html">Hem</a>
+        <div style="float:right" class="dropdown">
+          <button class="dropbtn">Verktyg 
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="ohm.html">Ohms Lag</a>
+            <a href="elpriser.html">Elpriser</a>
+            <a href="pythagoras.html">Pythagoras Sats</a>
+            <a href="former.html">Former</a>
+            <a href="grader.html">Grader</a>
+          </div>
+        </div> 
+      </div>
+
+    <br>
+    <br>
+
+    <div class="titel">Ohms Lag</div>
+
+    <br>
+    <br>
+    <br>
+    <hr class="linje">
+
+    <p class="textpg"><b>» |</b> Ohm (Ω)</p>
+    <input type="number" id="voltohm" placeholder="Volt">
+    <input type="number" id="ampereohm" placeholder="Ampere">
+    <input type="button" value="Calculate" onclick="calc()">
+
+    <br>
+    <br>
+
+    <p class="textpg"><b>» |</b> Ampere (I / A)</p>
+    <input type="number" id="voltamp" placeholder="Volt">
+    <input type="number" id="ohmamp" placeholder="Ohm">
+    <input type="button" value="Calculate" onclick="calc()">
+
+    <br>
+    <br>
+
+    <p class="textpg"><b>» |</b> Volt (V / U / E)</p>
+    <input type="number" id="amperevolt" placeholder="Ampere">
+    <input type="number" id="ohmvolt" placeholder="Ohm">
+    <input type="button" value="Calculate" onclick="calc()">
+  </body>
+</html>

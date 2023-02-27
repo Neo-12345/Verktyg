@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>» | Pythagoras Sats</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+      function calc() {
+        // Pythagoras Sats
+
+        // C Sidan
+        let PythAC = document.querySelector("#ac").value;
+        let PythBC = document.querySelector("#bc").value;
+
+        // B Sidan
+        let PythAB = document.querySelector("#ab").value;
+        let PythCB = document.querySelector("#cb").value;
+
+        // A Sidan
+        let PythBA = document.querySelector("#ba").value;
+        let PythCA = document.querySelector("#ca").value;
+
+        if(PythAC && PythBC) { // Pythagoras Sats (C)
+          PythAC = Number(PythAC);
+          PythBC = Number(PythBC);
+
+          let rAC = Math.pow(PythAC, 2); // Upphöjt med.
+          let rBC = Math.pow(PythBC, 2);
+          let r = (rAC + rBC) // Plusar ihop.
+          let rC = Math.pow(r, 2);
+          let squared = Math.sqrt(r);
+          alert(`• C^2: ${rC}\n• C: √${r}\n• Roten ur: ${squared}`); // Raw och Resultat med roten ur.
+
+          document.querySelector("#ac").value = "";
+          document.querySelector("#bc").value = "";
+        }
+
+        if (PythAB && PythCB) { // Pythagoras Sats (B)
+          PythAB = Number(PythAB);
+          PythCB = Number(PythCB);
+
+          let rAB = Math.pow(PythAB, 2);
+          let rCB = Math.pow(PythCB, 2);
+          let r = (rCB - rAB)
+          let rB = Math.pow(r, 2);
+          let squared = Math.sqrt(r);
+          alert(`• B^2: ${rB}\n• B: √${r}\n• Roten ur: ${squared}`);
+
+          document.querySelector("#ab").value = "";
+          document.querySelector("#cb").value = "";
+        }
+
+        if (PythBA && PythCA) { // Pythagoras Sats (A)
+          PythBA = Number(PythBA);
+          PythCA = Number(PythCA);
+
+          let rBA = Math.pow(PythBA, 2);
+          let rCA = Math.pow(PythCA, 2);
+          let r = (rCA - rBA)
+          let rA = Math.pow(r, 2);
+          let squared = Math.sqrt(r);
+          alert(`• A^2: ${rA}\n• A: √${r}\n• Roten ur: ${squared}`);
+
+          document.querySelector("#ba").value = "";
+          document.querySelector("#ca").value = "";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="navbar">
+        <a class="hem" href="../index.html">Hem</a>
+        <div style="float:right" class="dropdown">
+          <button class="dropbtn">Verktyg 
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="ohm.html">Ohms Lag</a>
+            <a href="elpriser.html">Elpriser</a>
+            <a href="pythagoras.html">Pythagoras Sats</a>
+            <a href="former.html">Former</a>
+            <a href="grader.html">Grader</a>
+          </div>
+        </div> 
+      </div>
+
+    <br>
+    <br>
+
+    <div class="titel">Pythagoras Sats</div>
+
+    <br>
+    <br>
+    <br>
+    <hr class="linje">
+
+    <p class="textpg"><b>» |</b> A^2 + B^2 = C^2</p>
+    <input type="number" id="ac" placeholder="A">
+    <input type="number" id="bc" placeholder="B">
+    <input type="button" value="Calculate" onclick="calc()">
+
+    <br>
+    <br>
+
+    <p class="textpg"><b>» |</b> C^2 - A^2 = B^2</p>
+    <input type="number" id="cb" placeholder="C">
+    <input type="number" id="ab" placeholder="A">
+    <input type="button" value="Calculate" onclick="calc()">
+
+    <br>
+    <br>
+
+    <p class="textpg"><b>» |</b> C^2 - B^2 = A^2</p>
+    <input type="number" id="ca" placeholder="C">
+    <input type="number" id="ba" placeholder="B">
+    <input type="button" value="Calculate" onclick="calc()">
+  </body>
+</html>

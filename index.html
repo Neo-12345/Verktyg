@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Verktyg</title>
+        <script>
+            function calc() {
+                // Ohms Lag
+                let voltAmp = document.querySelector("#volt").value; // Volt för Ampere
+                let ohmAmp = document.querySelector("#ohm").value; // Ohm för Ampere
+
+                let voltOhm = document.querySelector("#volt2").value; // Volt för Ohm
+                let ampereOhm = document.querySelector("#ampere").value; // Ampere för Ohm
+
+                let ampereVolt = document.querySelector("#ampere2").value; // Ampere för Volt
+                let ohmVolt = document.querySelector("#ohm2").value; // Ohm för Volt
+
+                // Elpriser
+                let elpris = document.querySelector("#elpris").value;
+                let kwh = document.querySelector("#kwh").value;
+                let månad = document.querySelector("#month").value;
+
+                // Pythagoras Sats
+                let PythAC = document.querySelector("#ac").value;
+                let PythBC = document.querySelector("#bc").value;
+
+                let PythAB = document.querySelector("#ab").value;
+                let PythCB = document.querySelector("#cb").value;
+
+                let PythBA = document.querySelector("#ba").value;
+                let PythCA = document.querySelector("#ca").value;
+
+                if(voltAmp && ohmAmp) { // Ampere uträkning
+                    voltAmp = Number(voltAmp);
+                    ohmAmp = Number(ohmAmp);
+
+                    let result = voltAmp / ohmAmp;
+                    alert(`${result} Ampere`);
+                    document.querySelector("#volt").value = "";
+                    document.querySelector("#ohm").value = "";
+                }
+
+                if(voltOhm && ampereOhm) { // Ohm uträkning
+                    voltOhm = Number(voltOhm);
+                    ampereOhm = Number(ampereOhm);
+
+                    let result = voltOhm / ampereOhm;
+                    alert(`${result} Ohm`);
+                    document.querySelector("#volt2").value = "";
+                    document.querySelector("#ampere").value = "";
+                }
+
+                if(ampereVolt && ohmVolt) { // Volt uträkning
+                    ampereVolt = Number(ampereVolt);
+                    ohmVolt = Number(ohmVolt);
+
+                    let result = ampereVolt * ohmVolt;
+                    alert(`${result} Volt`);
+                    document.querySelector("#ampere2").value = "";
+                    document.querySelector("#ohm2").value = "";
+                }
+
+                if(elpris && kwh && månad) { // Elpris uträkning
+                    elpris = Number(elpris);
+                    kwh = Number(kwh);
+                    månad = Number(månad);
+
+                    // Fast pris = 250kr
+                    let result = (250 * månad) + (månad * 30 * elpris)
+                    alert(`• Resultat: ${result}kr\n• Per Månad: ${result / månad}kr`);
+                    document.querySelector("#elpris").value = "";
+                    document.querySelector("#kwh").value = "";
+                    document.querySelector("#month").value = "";
+                }
+
+                if(PythAC && PythBC) { // Pythagoras Sats (C)
+                    PythAC = Number(PythAC);
+                    PythBC = Number(PythBC);
+
+                    let rAC = Math.pow(PythAC, 2);
+                    let rBC = Math.pow(PythBC, 2);
+                    let r = (rAC + rBC)
+                    let rC = Math.pow(r, 2);
+
+                    alert(`• C^2: √${rC}\n• C: ${r}`);
+                    document.querySelector("#ac").value = "";
+                    document.querySelector("#bc").value = "";
+                }
+
+                if(PythAB && PythCB) { // Pythagoras Sats (B)
+                    PythAB = Number(PythAB);
+                    PythCB = Number(PythCB);
+
+                    let rAB = Math.pow(PythAB, 2);
+                    let rCB = Math.pow(PythCB, 2);
+                    let r = (rCB - rAB)
+                    let rB = Math.pow(r, 2);
+
+                    alert(`• B^2: √${rB}\n• B: ${r}`);
+                    document.querySelector("#ab").value = "";
+                    document.querySelector("#cb").value = "";
+                }
+
+                if(PythBA && PythCA) { // Pythagoras Sats (A)
+                    PythBA = Number(PythBA);
+                    PythCA = Number(PythCA);
+
+                    let rBA = Math.pow(PythBA, 2);
+                    let rCA = Math.pow(PythCA, 2);
+                    let r = (rCA - rBA)
+                    let rA = Math.pow(r, 2);
+
+                    alert(`• A^2: √${rA}\n• A: ${r}`);
+                    document.querySelector("#ba").value = "";
+                    document.querySelector("#ca").value = "";
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h3><u>Ohms Lag</u></h3>
+        <hr class="linje">
+
+        <p><b>» |</b> Ampere (I / A)</p> <!-- Paragraph Ampere -->
+        <input type="number" id="volt" placeholder="Volt"> <!-- En integer ruta (Volt) -->
+        <input type="number" id="ohm" placeholder="Ohm"> <!-- En integer ruta (Ohm) -->
+        <input type="button" value="Calculate" onclick="calc()"> <!-- Calculation funktion -->
+
+        <hr class="linje">
+
+        <p><b>» |</b> Ohm (Ω)</p> <!-- Paragraph Ohm -->
+        <input type="number" id="volt2" placeholder="Volt"> <!-- En integer ruta (Volt) -->
+        <input type="number" id="ampere" placeholder="Ampere"> <!-- En integer ruta (Ampere) -->
+        <input type="button" value="Calculate" onclick="calc()"> <!-- Calculation funktion -->
+
+        <hr class="linje">
+
+        <p><b>» |</b> Volt (V / U / E)</p> <!-- Paragraph Volt -->
+        <input type="number" id="ampere2" placeholder="Ampere"> <!-- En integer ruta (Ampere) -->
+        <input type="number" id="ohm2" placeholder="Ohm"> <!-- En integer ruta (Ohm) -->
+        <input type="button" value="Calculate" onclick="calc()"> <!-- Calculation funktion -->
+
+        <hr class="linje">
+
+        <br> <!-- Break -->
+
+        <h3><u>El Priser</u></h3>
+
+        <hr class="linje">
+
+        <p><b>» |</b> Elpris (Månadsvis)</p> <!-- Paragraph Ohm -->
+        <input type="number" id="elpris" placeholder="Elpris"> <!-- En interger ruta (Elpris) -->
+        <input type="number" id="kwh" placeholder="KwH"> <!-- En interger ruta (KwH) -->
+        <input type="number" id="month" placeholder="Månad"> <!-- En interger ruta (Månad) -->
+        <input type="button" value="Calculate" onclick="calc()"> <!-- Calculation funktion -->
+
+        <hr class="linje">
+
+        <br>
+
+        <h3><u>Pythagoras Sats</u></h3>
+
+        <hr class="linje">
+
+        <p><b>» |</b> A^2 + B^2 = C^2</p>
+        <input type="number" id="ac" placeholder="A">
+        <input type="number" id="bc" placeholder="B">
+        <input type="button" value="Calculate" onclick="calc()">
+
+        <hr class="linje">
+
+        <p><b>» |</b> C^2 - A^2 = B^2</p>
+        <input type="number" id="cb" placeholder="C">
+        <input type="number" id="ab" placeholder="A">
+        <input type="button" value="Calculate" onclick="calc()">
+
+        <hr class="linje">
+
+        <p><b>» |</b> C^2 - B^2 = A^2</p>
+        <input type="number" id="ca" placeholder="C">
+        <input type="number" id="ba" placeholder="B">
+        <input type="button" value="Calculate" onclick="calc()">
+
+        <hr class="linje">
+
+        <style>
+            body {
+                background-color: lightblue;
+            }
+
+            input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+
+            hr.linje {
+                border: 2px solid #1579b3;
+                border-radius: 5px;
+            }
+        </style>
+    </body>
+</html>

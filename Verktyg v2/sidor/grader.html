@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>» | Grader</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+      function calc() {
+        // Celsius -> Fahrenheit
+        let celsius = document.querySelector("#celsius").value;
+
+        // Fahrenheit -> Celsius
+        let fahrenheit = document.querySelector("#fahrenheit").value
+
+        if(celsius) { // Celsius -> Fahrenheit
+          celsius = Number(celsius);
+
+          let result = celsius * 1.8 + 32;
+          alert(`• Fahrenheit: ${result}°F`);
+
+          document.querySelector("#celsius").value = "";
+        }
+
+        if(fahrenheit) { // Fahrenheit -> Celsius
+          fahrenheit = Number(fahrenheit);
+
+          let result = (fahrenheit - 32) * 5 / 9;
+          alert(`• Celsius: ${result}°C`);
+
+          document.querySelector("#fahrenheit").value = "";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="navbar">
+        <a class="hem" href="../index.html">Hem</a>
+        <div style="float:right" class="dropdown">
+          <button class="dropbtn">Verktyg 
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="ohm.html">Ohms Lag</a>
+            <a href="elpriser.html">Elpriser</a>
+            <a href="pythagoras.html">Pythagoras Sats</a>
+            <a href="former.html">Former</a>
+            <a href="grader.html">Grader</a>
+          </div>
+        </div> 
+      </div>
+
+    <br>
+    <br>
+
+    <div class="titel">Grader</div>
+
+    <br>
+    <br>
+    <br>
+    <hr class="linje">
+
+    <p class="textpg"><b>» |</b> Celsius -> Fahrenheit</p>
+    <input type="number" id="celsius" placeholder="Celsius">
+    <input type="button" value="Calculate" onclick="calc()">
+
+    <br>
+    <br>
+
+    <p class="textpg"><b>» |</b> Fahrenheit -> Celsius</p>
+    <input type="number" id="fahrenheit" placeholder="Fahrenheit">
+    <input type="button" value="Calculate" onclick="calc()">
+  </body>
+</html>

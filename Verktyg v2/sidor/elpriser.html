@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>» | Elpriser</title> <!-- Titeln för hemsidan. -->
+    <link rel="stylesheet" href="../style.css"> <!-- CSS Stylesheet. -->
+    <script>
+      function calc() { // Funktion calc som är till för calculation knappen.
+        // Elpriser
+        let elpris = document.querySelector("#elpris").value; // Tar värdet från en html input ruta.
+        let kwh = document.querySelector("#kwh").value;
+        let månad = document.querySelector("#month").value;
+
+        elpris = Number(elpris); // Formaterar inputen till en siffra.
+        kwh = Number(kwh);
+        månad = Number(månad);
+
+        // Fast pris = 250kr
+        let result = (250 * månad) + (månad * 30 * (elpris * kwh)); // Uträkning
+        alert(`• Resultat: ${result}kr\n• Per Månad: ${result / månad}kr`); // Gör en alert ruta med resultet samt per månad.
+
+        document.querySelector("#elpris").value = ""; // Rensar input rutan efter man stänger ner alert rutan.
+        document.querySelector("#kwh").value = "";
+        document.querySelector("#month").value = "";
+      }
+    </script>
+  </head>
+  <body>
+    <div class="navbar"> <!-- Class för navbaren.  -->
+        <a class="hem" href="../index.html">Hem</a> <!-- Hem knappen. -->
+        <div style="float:right" class="dropdown"> <!-- Flyttar "verktygs" knappen åt höger samt ger den classen "dropdown". -->
+          <button class="dropbtn">Verktyg <!-- Gör en knapp för dropdown. -->
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content"> <!-- Class för dropdownen. -->
+            <a href="ohm.html">Ohms Lag</a> <!-- Dropdown content. -->
+            <a href="elpriser.html">Elpriser</a>
+            <a href="pythagoras.html">Pythagoras Sats</a>
+            <a href="former.html">Former</a>
+            <a href="grader.html">Grader</a>
+          </div>
+        </div> 
+      </div>
+
+    <br> <!-- Ny rad (break) -->
+    <br>
+
+    <div class="titel">Elpriser</div> <!-- Titel. -->
+
+    <br>
+    <br>
+    <br>
+    <hr class="linje"> <!-- Gör en linje på nästa rad. -->
+
+    <p class="textpg"><b>» |</b> Elpris (Månadsvis)</p> <!-- En paragraf ovanför input / calculation knappen. -->
+    <input type="number" id="elpris" placeholder="Elpris"> <!-- Integer ruta för bara siffror. -->
+    <input type="number" id="kwh" placeholder="KwH">
+    <input type="number" id="month" placeholder="Månad">
+    <input type="button" value="Calculate" onclick="calc()"> <!-- Calulation knapp med onclick funktion på calc() -->
+  </body>
+</html>
